@@ -1,7 +1,9 @@
+import GameArea from "../../components/GameArea/GameArea"
+
 function Home() {
     return (
         <>
-        <h1>this is home</h1>
+        <GameArea />
         </>
       )
 }
