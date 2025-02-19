@@ -5,6 +5,26 @@
   text-align: center;
 }
 
+.header {
+  width: 100%;
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+
+  .header-icon {
+    display: flex;
+    height: 2rem;
+
+    a {
+      height: 100%;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
