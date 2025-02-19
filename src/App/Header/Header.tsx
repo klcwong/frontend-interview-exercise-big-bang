@@ -13,9 +13,6 @@ function Header() {
           <h1>Frontend Exercise</h1>
           <h2>Rock, Paper, Scissors, Lizard, Spock</h2>
         </header>
-        <div className='test'>
-  
-        </div>
       </>
     )
   }
