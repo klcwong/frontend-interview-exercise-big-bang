@@ -6,6 +6,7 @@
     height: 5rem;
     background-color: hsl(138, 70%, 50%);
     border-radius: 100%;
+    transition: 0.5s;
 
     & > * {
         width: 50%;
