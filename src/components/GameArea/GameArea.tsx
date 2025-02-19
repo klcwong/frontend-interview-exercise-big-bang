@@ -1,7 +1,9 @@
+import GameButtons from "./GameButtons/GamesButtons"
+
 function GameArea() {
     return (
         <>
-        <h1>this is Game area</h1>
+          <GameButtons />
         </>
       )
 }
