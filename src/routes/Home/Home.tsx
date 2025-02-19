@@ -3,7 +3,9 @@ import GameArea from "../../components/GameArea/GameArea"
 function Home() {
     return (
         <>
-        <GameArea />
+        <div className="route">
+          <GameArea />
+        </div>
         </>
       )
 }
