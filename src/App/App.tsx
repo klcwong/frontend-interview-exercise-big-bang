@@ -6,7 +6,7 @@ function App() {
     <>
       <header className='header'>
         <div className='header-icon'>
-          <a href="https://automata.tech/" target="_blank">
+          <a href="https://automata.tech/" target="_blank" rel="noreferrer">
             <img src={String(automataLogo)} className="logo automata" alt="Automata logo"/>
           </a>
         </div>
