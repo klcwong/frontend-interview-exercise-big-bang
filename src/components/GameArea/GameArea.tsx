@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import GameButtons from "./GameButtons/GamesButtons"
 import GameResult from "./GameResult/GameResult"
+import Username from "./Username/Username";
 
 export enum Action {
   Rock,
@@ -63,7 +64,8 @@ export interface GameState {
   isPlayed: boolean,
   player1Action: Action,
   player2Action: Action,
-  result: Result
+  result: Result,
+  username: string;
 }
 
 function GameArea() {
@@ -72,9 +74,10 @@ function GameArea() {
     player1Action: Action.Rock,
     player2Action: Action.Rock,
     result: Result.Tie,
+    username: "Player",
   })
 
-  function buttonHandler(event: React.MouseEvent<HTMLElement>) {
+  const buttonHandler = (event: React.MouseEvent<HTMLElement>) => {
     const ActionType = event.currentTarget.getAttribute("data-action-type");
     if (ActionType === null) {
       console.error("Cannot find the attribute `data-action-type`");
@@ -93,12 +96,20 @@ function GameArea() {
     }))
   }
 
-    return (
-        <>
-          <GameResult gameState={gameState}/>
-          <GameButtons actions={ACTIONS} onClick={buttonHandler}/>
-        </>
-      )
+  const updateUsername = (newUsername: string) => {
+    setGameState((state) =>({
+      ...state,
+      username: newUsername,
+    }))
+  }
+
+  return (
+      <>
+        <GameResult gameState={gameState}/>
+        <GameButtons actions={ACTIONS} onClick={buttonHandler}/>
+        <Username gameState={gameState} updateUsername={updateUsername}/>
+      </>
+    )
 }
 
 export default GameArea

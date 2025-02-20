@@ -47,7 +47,7 @@ function GameResult(props: Props) {
         <div className="game-result">
             {props.gameState.isPlayed && 
             (<><h2>{resultState.literal} {resultState.icon} </h2>
-                <h4>You: <ActionIcon action={gameState.player1Action}/></h4>
+                <h4>{gameState.username}: <ActionIcon action={gameState.player1Action}/></h4>
                 <h4>Computer: <ActionIcon action={gameState.player2Action}/></h4>
             </>)
             }

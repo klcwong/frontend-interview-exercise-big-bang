@@ -3,9 +3,9 @@ import { Action } from "../../GameArea/GameArea";
 
 interface Props {
     children: ReactNode;
-    className: string;
-    title: string;
-    actionType: Action;
+    className?: string;
+    title?: string;
+    actionType?: Action;
     onClick: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
