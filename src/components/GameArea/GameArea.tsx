@@ -16,10 +16,11 @@ export enum Result {
   Tie
 }
 
+const ACTIONS = [Action.Rock, Action.Paper, Action.Scissors, Action.Lizard, Action.Spock];
+
 function getRandomAction(): Action {
-  const actions = [Action.Rock, Action.Paper, Action.Scissors, Action.Lizard, Action.Spock];
-  const randamIndex = Math.floor(Math.random() * actions.length)
-  return actions[randamIndex]
+  const randamIndex = Math.floor(Math.random() * ACTIONS.length)
+  return ACTIONS[randamIndex]
 }
 
 function judge(player1Action: Action, player2Action: Action): Result {
@@ -95,7 +96,7 @@ function GameArea() {
     return (
         <>
           <GameResult gameState={gameState}/>
-          <GameButtons onClick={buttonHandler}/>
+          <GameButtons actions={ACTIONS} onClick={buttonHandler}/>
         </>
       )
 }
