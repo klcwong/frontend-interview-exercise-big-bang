@@ -1,6 +1,6 @@
 import { useRef } from "react"
-import Button from "../../common/Button/Button"
-import { GameState } from "../GameArea"
+import Button from "../../../common/Button/Button"
+import { GameState } from "../../GameArea"
 import "./Username.css"
 
 interface Props {

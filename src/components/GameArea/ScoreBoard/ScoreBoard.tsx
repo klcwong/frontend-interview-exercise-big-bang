@@ -1,5 +1,5 @@
 import { GameState } from "../GameArea"
-import Username from "../Username/Username"
+import Username from "./Username/Username"
 import "./ScoreBoard.css"
 
 interface Props {
