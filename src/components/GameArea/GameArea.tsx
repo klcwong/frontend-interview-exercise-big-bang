@@ -18,6 +18,7 @@ export enum Result {
 }
 
 const ACTIONS = [Action.Rock, Action.Paper, Action.Scissors, Action.Lizard, Action.Spock];
+const DEFAULT_USERNAME = "Player";
 
 function getRandomAction(): Action {
   const randamIndex = Math.floor(Math.random() * ACTIONS.length)
@@ -78,7 +79,7 @@ function getStorge(): Storge {
   const scoreStr = window.localStorage.getItem("score");
   const score = scoreStr === null ? 0 : Number(scoreStr);
 
-  const username = window.localStorage.getItem("username") ?? "Player";
+  const username = window.localStorage.getItem("username") ?? DEFAULT_USERNAME;
 
   return {username: username, score} ;
 }
@@ -128,6 +129,20 @@ function GameArea() {
     setStorge(gameState.username, newScore);
   }
 
+  const resetGameState = () => {
+    const defaultGameState = {
+      isPlayed: false,
+      player1Action: Action.Rock,
+      player2Action: Action.Rock,
+      result: Result.Tie,
+      username: DEFAULT_USERNAME,
+      score: 0,
+    }
+
+    setGameState(() => defaultGameState)
+    setStorge(defaultGameState.username, defaultGameState.score);
+  }
+
   const updateUsername = (newUsername: string) => {
     setGameState((state) =>({
       ...state,
@@ -141,7 +156,11 @@ function GameArea() {
       <>
         <GameResult gameState={gameState}/>
         <GameButtons actions={ACTIONS} onClick={buttonHandler}/>
-        <ScoreBoard gameState={gameState} updateUsername={updateUsername}/>
+        <ScoreBoard
+          gameState={gameState}
+          updateUsername={updateUsername}
+          resetHandler={resetGameState}
+        />
       </>
     )
 }
