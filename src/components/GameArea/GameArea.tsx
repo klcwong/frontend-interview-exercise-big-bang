@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import GameButtons from "./GameButtons/GamesButtons"
 import GameResult from "./GameResult/GameResult"
-import Username from "./Username/Username";
+import ScoreBoard from "./ScoreBoard/ScoreBoard";
 
 export enum Action {
   Rock,
@@ -66,6 +66,12 @@ export interface GameState {
   player2Action: Action,
   result: Result,
   username: string;
+  score: number;
+}
+
+function getScoreFromStorge(): number {
+  const value = window.sessionStorage.getItem("score");
+  return value === null ? 0 : Number(value);
 }
 
 function GameArea() {
@@ -75,6 +81,7 @@ function GameArea() {
     player2Action: Action.Rock,
     result: Result.Tie,
     username: "Player",
+    score: getScoreFromStorge(),
   })
 
   const buttonHandler = (event: React.MouseEvent<HTMLElement>) => {
@@ -86,6 +93,12 @@ function GameArea() {
     const player1Action = Number(ActionType) as Action
     const player2Action = getRandomAction();
     const result = judge(player1Action, player2Action)
+    const newScore =
+      result === Result.Win ?
+      gameState.score + 1 :
+      result === Result.Lose ?
+      gameState.score - 1 :
+      gameState.score;
     
     setGameState((state) =>({
       ...state,
@@ -93,6 +106,7 @@ function GameArea() {
       player1Action: player1Action,
       player2Action: player2Action,
       result:result,
+      score: newScore,
     }))
   }
 
@@ -107,7 +121,7 @@ function GameArea() {
       <>
         <GameResult gameState={gameState}/>
         <GameButtons actions={ACTIONS} onClick={buttonHandler}/>
-        <Username gameState={gameState} updateUsername={updateUsername}/>
+        <ScoreBoard gameState={gameState} updateUsername={updateUsername}/>
       </>
     )
 }

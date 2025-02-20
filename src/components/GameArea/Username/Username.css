@@ -1,5 +1,5 @@
 .username {
-    width: 100%;
+    width: 70%;
     display: flex;
     gap: 1rem;
 
@@ -13,5 +13,9 @@
 
     .username-button {
         background-color: hsl(270, 46%, 42%);
+    }
+
+    @media (max-width: 640px) {
+        width: 100%;
     }
 }
