@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
-import "./GameButton.css"
 import { Action } from "../../GameArea/GameArea";
+import Button from "../Button/Button";
+import "./GameButton.css"
 
 interface Props {
   children: ReactNode;
@@ -11,14 +12,14 @@ interface Props {
 
 function GameButton(props: Props) {
   return (
-    <div
+    <Button
       className="game-button"
       title={props.title}
       onClick={props.onClick}
-      data-action-type={props.actionType}
+      actionType={props.actionType}
     >
       {props.children}
-    </div>
+    </Button>
   )
 }
 
