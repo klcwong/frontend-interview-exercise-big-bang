@@ -61,27 +61,43 @@ function judge(player1Action: Action, player2Action: Action): Result {
 }
 
 export interface GameState {
-  isPlayed: boolean,
-  player1Action: Action,
-  player2Action: Action,
-  result: Result,
+  isPlayed: boolean;
+  player1Action: Action;
+  player2Action: Action;
+  result: Result;
   username: string;
   score: number;
 }
 
-function getScoreFromStorge(): number {
-  const value = window.sessionStorage.getItem("score");
-  return value === null ? 0 : Number(value);
+interface Storge {
+  username: string;
+  score: number;
+}
+
+function getStorge(): Storge {
+  const scoreStr = window.localStorage.getItem("score");
+  const score = scoreStr === null ? 0 : Number(scoreStr);
+
+  const username = window.localStorage.getItem("username") ?? "Player";
+
+  return {username: username, score} ;
+}
+
+function setStorge(newUsername: string, newScore: number) {
+  window.localStorage.setItem("score", newScore.toString());
+  window.localStorage.setItem("username", newUsername);
 }
 
 function GameArea() {
+  const storge = getStorge();
+
   const [gameState, setGameState] = useState<GameState>({
     isPlayed: false,
     player1Action: Action.Rock,
     player2Action: Action.Rock,
     result: Result.Tie,
-    username: "Player",
-    score: getScoreFromStorge(),
+    username: storge.username,
+    score: storge.score,
   })
 
   const buttonHandler = (event: React.MouseEvent<HTMLElement>) => {
@@ -108,6 +124,8 @@ function GameArea() {
       result:result,
       score: newScore,
     }))
+
+    setStorge(gameState.username, newScore);
   }
 
   const updateUsername = (newUsername: string) => {
@@ -115,6 +133,8 @@ function GameArea() {
       ...state,
       username: newUsername,
     }))
+
+    setStorge(newUsername, gameState.score);
   }
 
   return (
