@@ -1,6 +1,6 @@
 import ActionIcon from "../../common/ActionIcon/ActionIcon"
 import GameButton from "../../common/GameButton/GameButton"
-import { Action } from "../GameArea"
+import { Action } from "../GameArea.type"
 import "./GameButtons.css"
 
 interface Props {

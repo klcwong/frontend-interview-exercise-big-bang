@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import ActionIcon from "../../common/ActionIcon/ActionIcon"
-import { GameState, Result } from "../GameArea"
+import { GameState, Result } from "../GameArea.type"
 import "./GameResult.css"
 
 interface Props {

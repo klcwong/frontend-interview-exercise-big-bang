@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Action } from "../../GameArea/GameArea";
+import { Action } from "../../GameArea/GameArea.type";
 
 interface Props {
     children: ReactNode;

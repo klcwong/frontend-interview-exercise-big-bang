@@ -2,20 +2,7 @@ import React, { useState } from "react"
 import GameButtons from "./GameButtons/GamesButtons"
 import GameResult from "./GameResult/GameResult"
 import ScoreBoard from "./ScoreBoard/ScoreBoard";
-
-export enum Action {
-  Rock,
-  Paper,
-  Scissors,
-  Lizard,
-  Spock
-}
-
-export enum Result {
-  Win,
-  Lose,
-  Tie
-}
+import { Action, Result } from "./GameArea.type";
 
 const ACTIONS = [Action.Rock, Action.Paper, Action.Scissors, Action.Lizard, Action.Spock];
 const DEFAULT_USERNAME = "Player";

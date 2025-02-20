@@ -1,4 +1,4 @@
-import { Action } from "../../GameArea/GameArea"
+import { Action } from "../../GameArea/GameArea.type"
 import Lizard from "../../svg/Lizard/Lizard"
 import Paper from "../../svg/Paper/Paper"
 import Rock from "../../svg/Rock/Rock"

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Action } from "../../GameArea/GameArea";
+import { Action } from "../../GameArea/GameArea.type";
 import Button from "../Button/Button";
 import "./GameButton.css"
 
