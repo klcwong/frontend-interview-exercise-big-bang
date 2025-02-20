@@ -8,6 +8,7 @@
   
     .header-icon {
       width: 20rem;
+      max-width: 50%;
 
       a {
         img {
@@ -15,6 +16,15 @@
           height: auto;
           display: block;
          }
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        display: none;
+      }
+      h2 {
+        font-size: 1.25rem;
       }
     }
   }

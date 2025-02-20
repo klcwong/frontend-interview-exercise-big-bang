@@ -16,4 +16,9 @@
         cursor: pointer;
         filter: brightness(1.2);
     }
+
+    @media (max-width: 640px) {
+        width: 4rem;
+        height: 4rem;
+    }
 }

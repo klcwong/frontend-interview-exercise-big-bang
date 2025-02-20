@@ -14,7 +14,7 @@ function ScoreBoard(props: Props) {
     
     return (
         <div className="score-board">
-            <h2>{`Score: ${gameState.score}`}</h2>
+            <h2 className="score-text">{`Score: ${gameState.score}`}</h2>
             <Username gameState={gameState} updateUsername={updateUsername}/>
             <ResetButton resetHandler={resetHandler} />
         </div>
