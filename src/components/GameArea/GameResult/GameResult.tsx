@@ -1,9 +1,19 @@
+import { GameState } from "../GameArea"
 import "./GameResult.css"
 
-function GameResult() {
+interface Props {
+    gameState: GameState
+}
+
+function GameResult(props: Props) {
     return (
         <div className="game-result">
-            <h1>this is Game Result</h1>
+            {props.gameState.isPlayed && 
+            (<><h1>You: {props.gameState.player1Action}</h1>
+                <h1>Computer: {props.gameState.player2Action}</h1>
+                <h1>Result: {props.gameState.result}</h1>
+            </>)
+            }
         </div>
     )
 }
