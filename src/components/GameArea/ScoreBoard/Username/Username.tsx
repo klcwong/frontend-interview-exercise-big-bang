@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import Button from "../../../common/Button/Button"
 import { GameState } from "../../GameArea"
 import "./Username.css"
@@ -11,6 +11,9 @@ interface Props {
 function Username(props: Props) {
     const { gameState, updateUsername } = props;
 
+    
+    const [inputValue, setInputValue] = useState(gameState.username)
+
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     const handleClick = () => {
@@ -22,11 +25,20 @@ function Username(props: Props) {
         updateUsername(newUserName)
     }
 
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(event.currentTarget.value);
+    }
+
+    useEffect(() => {
+            setInputValue(gameState.username);
+    }, [gameState])
+
     return (
         <div className="username">
             <input
                 className="username-input"
-                defaultValue={gameState.username}
+                value={inputValue}
+                onChange={handleInputChange}
                 ref={inputRef}
             />
             <Button
